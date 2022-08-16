@@ -1,0 +1,95 @@
+.overlay {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease 0s;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+	opacity: 0;
+	visibility: hidden;
+	width: 600px;
+	min-height: 300px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+	transform: translateY(50%);
+	transition: all 0.2s ease 0s;
+}
+
+.overlay.show .modal {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.title {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.cross {
+	width: 28px;
+	height: 28px;
+	display: block;
+	cursor: pointer;
+	position: relative;
+}
+
+.cross::before,
+.cross::after {
+	content: '';
+	width: 28px;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	top: 14px;
+	background-color: rgb(196, 196, 196);
+}
+
+.cross::before {
+	transform: rotate(45deg);
+}
+
+.cross::after {
+	transform: rotate(-45deg);
+}
+
+.cross:hover::before,
+.cross:hover::after {
+	background-color: rgb(165, 165, 165);
+}
+
+.body {
+	height: 100%;
+	padding: 20px 0;
+	font-size: 16px;
+}
+
+.body>p:not(:last-child) {
+	margin-bottom: 14px;
+}
